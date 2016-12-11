@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Week 12 Homework</title>
+	<link rel="stylesheet" type="text/css" href="styles/mystyles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.js"></script>
+</head>
+<body>
+
+	<div ng-app="recipeApp" ng-controller="recipeController">
+	<h2>HEALTH OPTIONS</h2>
+		<input id="veg" name="healthOptions" type="radio" value="vegan"> Vegan <br>
+		<input id="pal" name="healthOptions" type="radio" value="paleo"> Paleo <br>
+		<input id="kos" name="healthOptions" type="radio" value="kosher"> Kosher <br>
+
+
+	<h2>DIET OPTIONS</h2>
+		<input id="bal" name="dietOptions" type="radio" value="balanced"> Balanced Diet <br>
+		<input id="lwc" name="dietOptions" type="radio" value="lowCarb"> Low Carb <br>
+		<input id="hip" name="dietOptions" type="radio" value="highProtein"> High Protein <br><br>
+	
+
+	
+
+
+		
+		<input type="text" id="search" placeholder="Search recipes...">
+		<input type="button" id="button" ng-click="getRecipes()" value="search">
+		<div id="listArea">
+			<div class="recipeItem" ng-repeat="x in recipes">
+			<a href="{{ x.recipe.url }}"><h1>{{ x.recipe.label }}</h1></a>
+			<img src="{{ x.recipe.image }}" alt="">
+			<h4>Serves: {{ x.recipe.yield }}</h4>
+			<ul>
+				<li ng-repeat="y in x.recipe.ingredientLines">{{ y }}</li>
+			</ul>
+			</div>
+		</div>
+
+	</div>
+
+<script src="scripts/jquery.js"></script>
+<script src="scripts/myscripts.js"></script>
+</body>
+</html>
